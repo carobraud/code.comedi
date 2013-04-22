@@ -1,0 +1,1 @@
+gcc common.c ao_mmap_modif.c -lcomedi -lm -o ao_mmap_modif -DCOEFF=1000&&sudo ./ao_mmap_modif  -F 1000

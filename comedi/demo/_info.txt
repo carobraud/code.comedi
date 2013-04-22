@@ -1,0 +1,9 @@
+
+#DEMIPERIOD en nanosec
+g++ simple_RTloop.c -lcomedi -DDEMIPERIOD=50000 -DREAD -DWRITE -lrt -o simple_RTloop && ./simple_RTloop 
+
+
+gcc common.c ao_mmap_modif.c -lcomedi -lm -o ao_mmap_modif -DCOEFF=1000&&sudo ./ao_mmap_modif  -F 10000
+
+#SINUS
+g++ sinusRT.c -lcomedi -DDEMIPERIOD=100000 -lrt -o sinusRT && sudo ./sinusRT

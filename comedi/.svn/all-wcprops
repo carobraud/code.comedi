@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 26
+/svn/exp/!svn/ver/1/comedi
+END
+sample20k6ch.cc
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/exp/!svn/ver/7/comedi/sample20k6ch.cc
+END
+cmd.c
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/exp/!svn/ver/1/comedi/cmd.c
+END
+examples.h
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/exp/!svn/ver/6/comedi/examples.h
+END
+CImg_NetCDF.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/exp/!svn/ver/6/comedi/CImg_NetCDF.h
+END
+common.c
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/exp/!svn/ver/1/comedi/common.c
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/exp/!svn/ver/6/comedi/Makefile
+END
+mmap.cc
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/exp/!svn/ver/7/comedi/mmap.cc
+END

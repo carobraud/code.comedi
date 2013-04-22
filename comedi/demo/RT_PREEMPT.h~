@@ -1,0 +1,149 @@
+#ifndef	RT_PREEMPT
+#define	RT_PREEMPT
+
+#include <time.h>
+
+
+class RT_preempt{
+
+ int interval = DEMIPERIOD; /* 50us*/
+ //int interval = 50000; /* 50us*/
+  
+
+  void  stack_prefault()  
+  void  set_RTpriority()  
+
+}
+
+
+#define NSEC_PER_SEC    (1000000000) /* The number of nsecs per sec. */
+
+
+
+void stack_prefault() {
+#define MAX_SAFE_STACK (8*1024) /* The maximum stack size which is
+                                   guranteed safe to access without
+                                   faulting */
+
+        unsigned char dummy[MAX_SAFE_STACK];
+
+        memset(dummy, 0, MAX_SAFE_STACK);
+        return;
+}
+
+void set_RTpriority() 
+{ 
+#define MY_PRIORITY (49) /* we use 49 as the PRREMPT_RT use 50
+                            as the priority of kernel tasklets
+                            and interrupt handler by default */
+
+ struct timespec t;
+ struct sched_param param;
+ /* Declare ourself as a real time task */
+ 
+ param.sched_priority = MY_PRIORITY;
+ if(sched_setscheduler(0, SCHED_FIFO, &param) == -1) {
+   perror("sched_setscheduler failed");
+   exit(-1);
+ }
+
+
+//******************* ADD FOR RT
+
+int main(int argc,char *argv[])
+{
+int i;
+  comedi_t *device;
+  int chan=0;
+  lsampl_t maxdata;
+  int rangetype;
+  double volts;
+comedi_range *range_info;
+
+//!\todo to remove 
+
+int subdev = 0;         /* change this to your input subdevice */
+int range = 1;          /* more on this later */
+int aref = 0;           /* more on this later */
+
+//
+ 
+ /* Lock memory */
+ 
+ if(mlockall(MCL_CURRENT|MCL_FUTURE) == -1) {
+   perror("mlockall failed");
+   exit(-2);
+ }
+ 
+ /* Pre-fault our stack */
+ 
+ stack_prefault();
+ 
+ clock_gettime(CLOCK_MONOTONIC ,&t);
+
+ /* start after one second */
+ t.tv_sec++;
+
+//*******************************************
+
+  device=comedi_open("/dev/comedi0");
+
+  maxdata=comedi_get_maxdata(device,subdev,chan);
+//  rangetype=comedi_get_rangetype(cf,subdev,chan);
+range_info=comedi_get_range(device,subdev,chan,range);
+
+//print information
+printf("subdev=%d, chan=%d, maxdata=%d, range=%d\n",subdev,chan,maxdata,range);
+//printf("range_info=[%lf,%lf] unit=%d\n",range_info->min,range_info->max,range_info->unit);
+
+
+ int loop=0;
+ //int output=32780;
+ int zero=32000;
+ lsampl_t data;
+ lsampl_t output;
+for(i=0;i<1000000;++i)
+{
+//*********** ADD FOR RT
+  /* wait until next shot */
+  clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &t, NULL);
+//***********************
+#define SAMPLE_LEVEL_ZERO 32768
+#define SAMPLE_LEVEL_16BIT 65536
+
+#ifdef READ
+   comedi_data_read(device,0/*subdevice*/,0/*channel*/,0/*range*/,0/*aref*/,&data/*data*/);
+   //printf("data=%d\n",data);
+#endif
+#ifdef READ
+   output=(lsampl_t)-((int)data-SAMPLE_LEVEL_ZERO)+SAMPLE_LEVEL_ZERO;
+#else
+   output=loop*32000;
+#endif
+
+#ifdef WRITE
+  comedi_data_write(device,1/*subdevice*/,0/*channel*/,0/*range*/,0/*aref*/,output/*data*/);
+  	if(loop==0)
+  	  loop=1;
+  	else
+  	  loop=0;
+#endif
+
+//*********** ADD FOR RT
+  /* calculate next shot */
+                t.tv_nsec += interval;
+
+                while (t.tv_nsec >= NSEC_PER_SEC) {
+                       t.tv_nsec -= NSEC_PER_SEC;
+		       t.tv_sec++;}
+//*************			
+//usleep(USLEEP);
+ 
+//if(volts>0)
+  //printf("%d %g\n",data,volts);
+  //printf("aref=%d\n",aref);
+}
+
+ return 0;
+}
+

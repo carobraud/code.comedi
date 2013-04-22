@@ -1,0 +1,179 @@
+
+#include <stdio.h>      /* for printf() */
+#include <comedilib.h>
+#include <stdlib.h>
+#include <string.h>
+#include "RT_PREEMPT.h"
+#include <iostream>
+#include "../CImg/CImg.h"
+
+
+using namespace std;
+
+
+int main(int argc,char *argv[])
+{
+ // const int         verbose    = (cimg_option("-v",(const char*)NULL,"verbose option")!=NULL);
+ const bool        show_info  = (cimg_option("--info",(const char*)NULL,"information")!=NULL);
+ const bool        show_help  = (cimg_option("-h",(const char*)NULL,"information")!=NULL);
+ const int         size       = cimg_option("--size",10000,"loop number (DEMIPERIOD nanosecond between 2 loops)");
+ const int         MAX_IN     = cimg_option("--MAX_IN",2,"intput number");
+ const int         MAX_OUT    = cimg_option("--MAX_OUT",2,"output number");
+ if( cimg_option("-I",(const char*)NULL,"show compilation options") != NULL )
+   {
+      cimg_library::cimg::info();
+    }
+
+ if (show_help|show_info)
+   return 0; // program stops after printing the information
+
+
+
+int i;
+ comedi_t *device;
+ /* int chan=0;
+  lsampl_t maxdata;
+  int rangetype;
+  double volts;
+comedi_range *range_info;*/
+ RT_preempt RT;
+
+
+//!\todo to remove 
+
+//int subdev = 0;         /* change this to your input subdevice */
+//int range = 1;          /* more on this later */
+//int aref = 0;           /* more on this later */
+
+
+  device=comedi_open("/dev/comedi0");
+/*
+  maxdata=comedi_get_maxdata(device,subdev,chan);
+//  rangetype=comedi_get_rangetype(cf,subdev,chan);
+range_info=comedi_get_range(device,subdev,chan,range);
+
+//print information
+printf("subdev=%d, chan=%d, maxdata=%d, range=%d\n",subdev,chan,maxdata,range);
+//printf("range_info=[%lf,%lf] unit=%d\n",range_info->min,range_info->max,range_info->unit);
+*/
+//declaration CIMG
+//int size=100000, int MAX_IN =3, MAX_OUT = 3;//à mettre en option ligne de commande
+// Crée un tableau de valeurs.
+
+cimg_library::CImgList<int> tableau(MAX_OUT,size);
+  
+//Initialiser Conteneur à qqc
+cimglist_for(tableau,l) tableau[l].fill(0);
+
+tableau.print("tableau 0");
+
+// Initialization administration RT  
+ RT.initialization();
+ 
+
+
+
+
+#define SAMPLE_LEVEL_ZERO 32768
+#define SAMPLE_LEVEL_16BIT 65535
+
+// int loop=0;
+ //int output=32780;
+ //int zero=32000;
+
+ //lsampl_t data1, data0, data2;
+ lsampl_t Tab_IN[MAX_IN];
+// lsampl_t output0, output1,output2, output=SAMPLE_LEVEL_ZERO;
+ lsampl_t Tab_OUT[MAX_OUT];
+for(i=0;i<size;++i)
+{
+  // sleep of a nanosecond
+  RT.nanowait();
+  //printf("loop=%d\n",i);
+
+
+#ifdef READ
+//acquire 1 point for all channels
+for(int j=0;j<MAX_IN;++j)
+{
+comedi_data_read(device,0/*subdevice*/,j/*channel*/,0/*range*/,0/*aref*/,&Tab_IN[j]/*data*/);
+}//j loop
+//  comedi_data_read(device,0/*subdevice*/,0/*channel*/,0/*range*/,0/*aref*/,&data0/*data*/);
+//  comedi_data_read(device,0/*subdevice*/,1/*channel*/,0/*range*/,0/*aref*/,&data1/*data*/);
+//  comedi_data_read(device,0/*subdevice*/,2/*channel*/,0/*range*/,0/*aref*/,&data2/*data*/);
+
+  
+  //  cout << data <<endl;
+  //output=(lsampl_t)-((int)data-SAMPLE_LEVEL_ZERO)+SAMPLE_LEVEL_ZERO;
+#endif
+  
+#ifdef WRITE
+
+ for(int k=0;k<MAX_OUT;++k)
+{
+  //maxdata0 = comedi_get_maxdata(device,0/*subdevice*/,0/*channel*/);
+ // maxdata1 = comedi_get_maxdata(device,0/*subdevice*/,1/*channel*/);
+ // output0 = comedi_to_phys(device,data0, 0/*channel*/, maxdata0)
+ // output0 = comedi_to_phys(device,data1, 1/*channel*/, maxdata1)
+  Tab_OUT[k]=Tab_IN[k];
+
+ /* output0=data0;
+  output1=data1;
+  output2=data2;
+ #ifndef READ
+  if(loop==0)
+    {
+      loop=1;
+      output=SAMPLE_LEVEL_ZERO;
+    }
+  else
+    {
+      loop=0;
+      output=SAMPLE_LEVEL_16BIT;
+    }
+    #endif*/
+ comedi_data_write(device,1/*subdevice*/,k/*channel*/,0/*range*/,0/*aref*/,Tab_OUT[k]/*data*/);
+ // comedi_data_write(device,1/*subdevice*/,0/*channel*/,0/*range*/,0/*aref*/,output0/*data*/);
+ // comedi_data_write(device,1/*subdevice*/,1/*channel*/,0/*range*/,0/*aref*/,output1/*data*/);
+ // comedi_data_write(device,1/*subdevice*/,2/*channel*/,0/*range*/,0/*aref*/,output2/*data*/);
+
+ 
+ 
+//put output in CIMG and write in file
+tableau[k](i) = Tab_OUT[k];
+/*tableau[0](i) = output0;
+"etableau[1](i) = output1;
+tableau[2](i) = output2;
+*/
+
+//printf("Tab_IN[%d] =%d ", j ,Tab_OUT[j]);
+}//k loop
+
+#endif
+// calcul of the next time interval in a deterministic way: 50 microsec)
+  RT.next_time_interval();
+  
+  //usleep(USLEEP);
+  
+  //if(volts>0)
+  //printf("%d %g\n",data,volts);
+  //printf("aref=%d\n",aref);
+ }//i loop
+
+#ifdef WRITE
+
+//display_graph
+//tableau[0].display_graph("Graph_Channel0");
+//tableau[1].display_graph("Graph_Channel1");
+tableau.print("tableau record");
+
+{
+cimg_library::CImg<int> display(size,1,1,MAX_OUT);
+cimglist_for(tableau,l) display.draw_image(0,0,0,l,tableau[l]);
+display.display_graph("Graph_Channels");
+}
+
+#endif
+ return 0;
+}
+

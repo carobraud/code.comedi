@@ -1,0 +1,87 @@
+noinst_PROGRAMS = \
+	antialias ao_waveform ao_mmap apply_cal board_info choose_clock choose_filter \
+	choose_routing cmd do_waveform dio eeprom_dump gpct_buffered_counting \
+	gpct_encoder gpct_pulse_generator \
+	gpct_simple_counting inp inpn insn ledclock \
+	mmap mmap_initial outp poll receiver select \
+	sender sigio sv tut1 tut2
+
+LIBS = -lcomedi -lm
+EXTRA = common.c
+CC = gcc
+
+all: $(noinst_PROGRAMS)
+
+antialias:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+ao_waveform:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+ao_mmap:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+apply_cal:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+board_info:
+	$(CC) $(EXTRA) info.c $(LIBS) -o $@
+choose_clock:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+choose_filter:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+choose_routing:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+cmd:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+do_waveform:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+dio:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+eeprom_dump:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+gpct_buffered_counting:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+gpct_encoder:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+gpct_pulse_generator:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+gpct_simple_counting:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+inp:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+inpn:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@ 
+insn:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+ledclock:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+mmap:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+mmap_initial:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+outp:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+poll:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+receiver:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+select:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+sender:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+sigio:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+sv:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+tut1:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+tut2:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+printenv:
+	$(CC) $(EXTRA) $@.c $(LIBS) -o $@
+
+clean:
+	rm -f *.o
+	rm -rf .libs
+	@list='$(noinst_PROGRAMS)'; for p in $$list; do \
+	  rm -f $$p ; \
+	done
+
+

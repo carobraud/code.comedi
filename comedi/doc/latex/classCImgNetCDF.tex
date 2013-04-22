@@ -1,0 +1,622 @@
+\hypertarget{classCImgNetCDF}{
+\section{CImgNetCDF$<$ T $>$ Class Template Reference}
+\label{classCImgNetCDF}\index{CImgNetCDF@{CImgNetCDF}}
+}
+
+
+add NetCDF read/write support to CImg class  
+
+
+{\ttfamily \#include $<$CImg\_\-NetCDF.h$>$}Inheritance diagram for CImgNetCDF$<$ T $>$::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classCImgNetCDF}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCImgNetCDF_abfd9f3decfff0f38b656de221bcf0114}{
+int {\bfseries dim} (int d)}
+\label{classCImgNetCDF_abfd9f3decfff0f38b656de221bcf0114}
+
+\item 
+\hypertarget{classCImgNetCDF_a8d8a73a128243c345fc19ce63c2d1b45}{
+int {\bfseries loadDim} (int d)}
+\label{classCImgNetCDF_a8d8a73a128243c345fc19ce63c2d1b45}
+
+\item 
+int \hyperlink{classCImgNetCDF_a2ad26dcd306b26255c307e4f6d881240}{loadDimTime} (void)
+\begin{DoxyCompactList}\small\item\em function read unlimited dimension from NetCDF file \item\end{DoxyCompactList}\item 
+\hyperlink{classCImgNetCDF_ac067a8f473f246cd11de6b7320a98631}{CImgNetCDF} (void)
+\item 
+int \hyperlink{classCImgNetCDF_ae7d505dcbd88ede3b6a1c771ce8a6be7}{loadNetCDFFile} (char $\ast$fileName)
+\item 
+int \hyperlink{classCImgNetCDF_a94e05ac95caf702c89b9d9344836d425}{saveNetCDFFile} (char $\ast$fileName, std::vector$<$ std::string $>$ $\ast$pDim\_\-names=NULL, std::string $\ast$pTime\_\-name=NULL)
+\item 
+\hypertarget{classCImgNetCDF_ac71ad9414c16aab2dec51065b756c661}{
+int {\bfseries saveNetCDFFile} (char $\ast$fileName, NcFile::FileMode fmod, std::vector$<$ std::string $>$ $\ast$pDim\_\-names=NULL, std::string $\ast$pTime\_\-name=NULL)}
+\label{classCImgNetCDF_ac71ad9414c16aab2dec51065b756c661}
+
+\item 
+int \hyperlink{classCImgNetCDF_a8b20f921fe15b013c7b16a21d244bad7}{setNetCDFFile} (NcFile $\ast$pNetCDFFile)
+\item 
+NcFile $\ast$ \hyperlink{classCImgNetCDF_a658c9f9281a4a20cab568cf522ed197c}{getNetCDFFile} ()
+\item 
+int \hyperlink{classCImgNetCDF_abae347b1449a8e6f65188ace2df5fee6}{addNetCDFVar} (std::string var\_\-name, std::string unit\_\-name)
+\begin{DoxyCompactList}\small\item\em add variables in NetCDF file \item\end{DoxyCompactList}\item 
+int \hyperlink{classCImgNetCDF_a7435177fdb9af36ffc8f91460427f2eb}{addNetCDFVar} (CImg$<$ T $>$ \&img, std::string var\_\-name, std::string unit\_\-name)
+\begin{DoxyCompactList}\small\item\em add variables in NetCDF file \item\end{DoxyCompactList}\item 
+int \hyperlink{classCImgNetCDF_a7399534c2d1d77f2a8faee47e888045a}{addNetCDFData} (int time=-\/1)
+\begin{DoxyCompactList}\small\item\em add variable data in NetCDF file \item\end{DoxyCompactList}\item 
+\hypertarget{classCImgNetCDF_a186c10752268e29551cc24cf84bbe758}{
+int {\bfseries addNetCDFData} (CImg$<$ T $>$ \&img, int time=-\/1)}
+\label{classCImgNetCDF_a186c10752268e29551cc24cf84bbe758}
+
+\item 
+int \hyperlink{classCImgNetCDF_a72dbe97219bf43d21637dc01dcc972f6}{loadNetCDFVar} (CImg$<$ T $>$ \&img, std::string \&var\_\-name, std::string \&pUnit\_\-name=NULL)
+\begin{DoxyCompactList}\small\item\em load variable dimension from NetCDF file \item\end{DoxyCompactList}\item 
+int \hyperlink{classCImgNetCDF_a2cbfbccd1c9c37d7cbdafe9714c3cde8}{loadNetCDFDims} (std::vector$<$ std::string $>$ dim\_\-names, std::string $\ast$pTime\_\-name=NULL)
+\begin{DoxyCompactList}\small\item\em load dimensions from NetCDF file \item\end{DoxyCompactList}\item 
+int \hyperlink{classCImgNetCDF_a350b9626b09d65e530c08ae5dea60484}{loadNetCDFDimNames} (std::string \&var\_\-name, std::vector$<$ std::string $>$ \&dim\_\-names, std::string $\ast$pTime\_\-name=NULL)
+\begin{DoxyCompactList}\small\item\em load dimension names of a variable from NetCDF file \item\end{DoxyCompactList}\item 
+int \hyperlink{classCImgNetCDF_aa5dd32c8cec3b27aee106846b3fc67c9}{checkDim} (int d, CImg$<$ T $>$ img)
+\begin{DoxyCompactList}\small\item\em check if NetCDF {\ttfamily variable} and {\ttfamily CImg} dims are the same \item\end{DoxyCompactList}\item 
+int \hyperlink{classCImgNetCDF_aa96033c01ced12a4fbe89ab8c7a3dade}{loadNetCDFData} (CImg$<$ T $>$ \&img, int time=0)
+\begin{DoxyCompactList}\small\item\em load variable data from NetCDF file \item\end{DoxyCompactList}\item 
+int \hyperlink{classCImgNetCDF_aa573424ddff780eeaa637ff276593ac2}{loadNetCDFData3D} (CImg$<$ T $>$ \&img, int time=0)
+\item 
+int \hyperlink{classCImgNetCDF_a9e50ee49eb23896c5aa7de39e790464a}{loadNetCDFData2D} (CImg$<$ T $>$ \&img, int time=0)
+\item 
+int \hyperlink{classCImgNetCDF_afa914e4be782646fd737dd878a1806ca}{loadNetCDFDimNamesNoUnlimited} (std::string \&var\_\-name, std::vector$<$ std::string $>$ \&dim\_\-names)
+\begin{DoxyCompactList}\small\item\em same as previously but without time \item\end{DoxyCompactList}\item 
+\hypertarget{classCImgNetCDF_af51eb7bf4783e0f3e2da928c8d6af565}{
+int {\bfseries addNetCDFDims} (std::vector$<$ std::string $>$ dim\_\-names, std::string time\_\-name)}
+\label{classCImgNetCDF_af51eb7bf4783e0f3e2da928c8d6af565}
+
+\item 
+int \hyperlink{classCImgNetCDF_a1d3023907a79dd51f64eaabe6d42b040}{addNetCDFDims} (std::vector$<$ std::string $>$ dim\_\-names)
+\item 
+int \hyperlink{classCImgNetCDF_a62e321943bed9aaf068490170876aa97}{addNetCDFDim} (std::string \&dim\_\-name, int size, NcDim $\ast$\&pDim)
+\begin{DoxyCompactList}\small\item\em add one dimension checking for its availability \item\end{DoxyCompactList}\item 
+\hypertarget{classCImgNetCDF_aff2def0fdc5e2bb7c272b8d32e3b3ad2}{
+int {\bfseries addNetCDFDims} (CImg$<$ T $>$ \&img, std::vector$<$ std::string $>$ dim\_\-names, std::string time\_\-name)}
+\label{classCImgNetCDF_aff2def0fdc5e2bb7c272b8d32e3b3ad2}
+
+\item 
+int \hyperlink{classCImgNetCDF_aa2f07806e9316d68926abebdb9f9949b}{addNetCDFDims} (CImg$<$ T $>$ \&img, std::vector$<$ std::string $>$ dim\_\-names)
+\item 
+\hypertarget{classCImgNetCDF_a869e6e6d150c88e139f4fc97fcf086c8}{
+int {\bfseries setNetCDFDims} (std::string \&dim\_\-names, NcDim $\ast$pNetCDFDimt=NULL)}
+\label{classCImgNetCDF_a869e6e6d150c88e139f4fc97fcf086c8}
+
+\item 
+\hypertarget{classCImgNetCDF_aac72b6ac3dcc4af4a71a6fc3baa37f59}{
+int {\bfseries loadNetCDFDataNoUnlimited} (CImg$<$ T $>$ \&img)}
+\label{classCImgNetCDF_aac72b6ac3dcc4af4a71a6fc3baa37f59}
+
+\item 
+int \hyperlink{classCImgNetCDF_a4d60272a959fcdae94b83f46cf5a2864}{setNetCDFDims} (std::vector$<$ NcDim $\ast$ $>$ VDim, NcDim $\ast$pNetCDFDimt=NULL)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+NcError $\ast$ \hyperlink{classCImgNetCDF_ab7b0ae4b12b395794e3b0d02225130fd}{pNCError}
+\begin{DoxyCompactList}\small\item\em pointer to NetCDF error handling \item\end{DoxyCompactList}\item 
+NcFile $\ast$ \hyperlink{classCImgNetCDF_afc1258a75770925f6646a4291257e8f7}{pNCFile}
+\begin{DoxyCompactList}\small\item\em pointer to NetCDF file \item\end{DoxyCompactList}\item 
+\hypertarget{classCImgNetCDF_aea6062304914635a318edb26fef2ea99}{
+bool {\bfseries pNCFile\_\-init\_\-here}}
+\label{classCImgNetCDF_aea6062304914635a318edb26fef2ea99}
+
+\item 
+std::vector$<$ NcDim $\ast$ $>$ \hyperlink{classCImgNetCDF_acfe94f6cb56b1d1b8eea947473b4ce8c}{vpNCDim}
+\begin{DoxyCompactList}\small\item\em pointers to NetCDF dimensions \item\end{DoxyCompactList}\item 
+\hypertarget{classCImgNetCDF_ad66fbd31482a2e76e24ed7b5c3316f22}{
+bool {\bfseries vpNCDim\_\-init\_\-here}}
+\label{classCImgNetCDF_ad66fbd31482a2e76e24ed7b5c3316f22}
+
+\item 
+NcDim $\ast$ \hyperlink{classCImgNetCDF_a741b1e75f0973b1057f9e6d0df938bea}{pNCDimt}
+\item 
+NcVar $\ast$ \hyperlink{classCImgNetCDF_a2075c35a87dadc9868f8a2a8b46ca833}{pNCvar}
+\begin{DoxyCompactList}\small\item\em pointers to NetCDF data \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$ class CImgNetCDF$<$ T $>$}
+
+add NetCDF read/write support to CImg class an object of this class may be created or CImg may derived from this class to handle NetCDF \begin{DoxyItemize}
+\item object in {\ttfamily }.cpp 
+\begin{DoxyCode}
+   CImgNetCDF<int> object;
+\end{DoxyCode}
+ \item derivation in {\ttfamily }.h 
+\begin{DoxyCode}
+   template<typename T> CnewClass: \c CImg<T>, \c CImgNetCDF<T>
+\end{DoxyCode}
+\end{DoxyItemize}
+\begin{DoxyNote}{Note}
+{\ttfamily \hyperlink{classCImgNetCDF}{CImgNetCDF}} and {\ttfamily CImg} must be of the same type 
+
+For this implementation, NetCDF variable dimensions need to be 5: four fixed dimensions (x,y,z,v) and one unlimited dimension (t)
+\end{DoxyNote}
+
+
+\begin{DoxySeeAlso}{See also}
+CImg 
+\end{DoxySeeAlso}
+
+
+Definition at line 40 of file CImg\_\-NetCDF.h.
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classCImgNetCDF_ac067a8f473f246cd11de6b7320a98631}{
+\index{CImgNetCDF@{CImgNetCDF}!CImgNetCDF@{CImgNetCDF}}
+\index{CImgNetCDF@{CImgNetCDF}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{CImgNetCDF}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf CImgNetCDF}$<$ T $>$::{\bf CImgNetCDF} (void)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_ac067a8f473f246cd11de6b7320a98631}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em :}]\end{DoxyParams}
+
+\begin{DoxyCode}
+\end{DoxyCode}
+ 
+
+Definition at line 193 of file CImg\_\-NetCDF.h.
+
+References CImgNetCDF$<$ T $>$::pNCDimt, CImgNetCDF$<$ T $>$::pNCError, CImgNetCDF$<$ T $>$::pNCFile, and CImgNetCDF$<$ T $>$::pNCvar.
+
+\subsection{Member Function Documentation}
+\hypertarget{classCImgNetCDF_a7399534c2d1d77f2a8faee47e888045a}{
+\index{CImgNetCDF@{CImgNetCDF}!addNetCDFData@{addNetCDFData}}
+\index{addNetCDFData@{addNetCDFData}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{addNetCDFData}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::addNetCDFData (int {\em time} = {\ttfamily -\/1})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_a7399534c2d1d77f2a8faee47e888045a}
+
+
+add variable data in NetCDF file add variable data in NetCDF file, may be called after creation of both dimensions {\ttfamily CImgNetCDF::addNetCDFDims} and variables {\ttfamily \hyperlink{classCImgNetCDF_abae347b1449a8e6f65188ace2df5fee6}{CImgNetCDF::addNetCDFVar}} 
+
+
+\begin{DoxyCode}
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+CImgNetCDF::addNetCDFDims \hyperlink{classCImgNetCDF_abae347b1449a8e6f65188ace2df5fee6}{CImgNetCDF::addNetCDFVar} 
+\end{DoxySeeAlso}
+
+
+Definition at line 432 of file CImg\_\-NetCDF.h.
+
+References CImgNetCDF$<$ T $>$::loadDimTime(), CImgNetCDF$<$ T $>$::pNCDimt, and CImgNetCDF$<$ T $>$::pNCvar.\hypertarget{classCImgNetCDF_a62e321943bed9aaf068490170876aa97}{
+\index{CImgNetCDF@{CImgNetCDF}!addNetCDFDim@{addNetCDFDim}}
+\index{addNetCDFDim@{addNetCDFDim}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{addNetCDFDim}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::addNetCDFDim (std::string \& {\em dim\_\-name}, \/  int {\em size}, \/  NcDim $\ast$\& {\em pDim})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_a62e321943bed9aaf068490170876aa97}
+
+
+add one dimension checking for its availability use existing dimension or create one \begin{DoxyNote}{Note}
+This is not the function for {\ttfamily unlimited} dimension. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em }]name of the dimension \item[\mbox{$\leftarrow$} {\em }]value of the dimension (i.e. size) \item[\mbox{$\rightarrow$} {\em }]NetCDF pointer to the dimension (i.e. existing or new dimension) \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK=0 or NetCDF error: DIM\_\-ERROR (dimension all ready exists, but size is different) or NC\_\-ERROR (output error). 
+\end{DoxyReturn}
+
+
+Definition at line 827 of file CImg\_\-NetCDF.h.\hypertarget{classCImgNetCDF_aa2f07806e9316d68926abebdb9f9949b}{
+\index{CImgNetCDF@{CImgNetCDF}!addNetCDFDims@{addNetCDFDims}}
+\index{addNetCDFDims@{addNetCDFDims}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{addNetCDFDims}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::addNetCDFDims (CImg$<$ T $>$ \& {\em img}, \/  std::vector$<$ std::string $>$ {\em dim\_\-names})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_aa2f07806e9316d68926abebdb9f9949b}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Definition at line 885 of file CImg\_\-NetCDF.h.\hypertarget{classCImgNetCDF_a1d3023907a79dd51f64eaabe6d42b040}{
+\index{CImgNetCDF@{CImgNetCDF}!addNetCDFDims@{addNetCDFDims}}
+\index{addNetCDFDims@{addNetCDFDims}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{addNetCDFDims}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::addNetCDFDims (std::vector$<$ std::string $>$ {\em dim\_\-names})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_a1d3023907a79dd51f64eaabe6d42b040}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Definition at line 813 of file CImg\_\-NetCDF.h.\hypertarget{classCImgNetCDF_a7435177fdb9af36ffc8f91460427f2eb}{
+\index{CImgNetCDF@{CImgNetCDF}!addNetCDFVar@{addNetCDFVar}}
+\index{addNetCDFVar@{addNetCDFVar}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{addNetCDFVar}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::addNetCDFVar (CImg$<$ T $>$ \& {\em img}, \/  std::string {\em var\_\-name}, \/  std::string {\em unit\_\-name})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_a7435177fdb9af36ffc8f91460427f2eb}
+
+
+add variables in NetCDF file save variables in NetCDF file, may be called after creation of dimensions {\ttfamily CImgNetCDF::addNetCDFDims} 
+
+
+\begin{DoxyCode}
+   dimv=2;char *fileName="2D2C.nc";
+   C2DnCNetCDFvelocity vel;//this class MUST be derivated as dimi(), dimj() and s
+      pectrum() are VIRTUAL
+   vel.pNCFile=new NcFile(fileName,NcFile::Replace);
+   vel.addNetCDFDims("dimX","dimY","time");
+   std::vector<std::string> var_names(dimv+1);
+   var_names[0]="vel_X";var_names[1]="vel_Y";
+   var_names[2]="flag";
+   std::vector<std::string> unit_names(2);
+   unit_names[0]="m/s";unit_names[1]="none";
+   addNetCDFVar(&var_names,&unit_names);
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+CImgNetCDF::addNetCDFDims 
+\end{DoxySeeAlso}
+
+
+Definition at line 396 of file CImg\_\-NetCDF.h.
+
+References CImgNetCDF$<$ T $>$::addNetCDFVar(), and CImgNetCDF$<$ T $>$::vpNCDim.\hypertarget{classCImgNetCDF_abae347b1449a8e6f65188ace2df5fee6}{
+\index{CImgNetCDF@{CImgNetCDF}!addNetCDFVar@{addNetCDFVar}}
+\index{addNetCDFVar@{addNetCDFVar}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{addNetCDFVar}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::addNetCDFVar (std::string {\em var\_\-name}, \/  std::string {\em unit\_\-name})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_abae347b1449a8e6f65188ace2df5fee6}
+
+
+add variables in NetCDF file save variables in NetCDF file, may be called after creation of dimensions {\ttfamily CImgNetCDF::addNetCDFDims} 
+
+
+\begin{DoxyCode}
+   dimv=2;char *fileName="2D2C.nc";
+   C2DnCNetCDFvelocity vel;//this class MUST be derivated as dimi(), dimj() and s
+      pectrum() are VIRTUAL
+   vel.pNCFile=new NcFile(fileName,NcFile::Replace);
+   vel.addNetCDFDims("dimX","dimY","time");
+   std::vector<std::string> var_names(dimv+1);
+   var_names[0]="vel_X";var_names[1]="vel_Y";
+   var_names[2]="flag";
+   std::vector<std::string> unit_names(2);
+   unit_names[0]="m/s";unit_names[1]="none";
+   addNetCDFVar(&var_names,&unit_names);
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+CImgNetCDF::addNetCDFDims 
+\end{DoxySeeAlso}
+
+
+Definition at line 336 of file CImg\_\-NetCDF.h.
+
+References CImgNetCDF$<$ T $>$::pNCDimt, CImgNetCDF$<$ T $>$::pNCFile, CImgNetCDF$<$ T $>$::pNCvar, and CImgNetCDF$<$ T $>$::vpNCDim.\hypertarget{classCImgNetCDF_aa5dd32c8cec3b27aee106846b3fc67c9}{
+\index{CImgNetCDF@{CImgNetCDF}!checkDim@{checkDim}}
+\index{checkDim@{checkDim}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{checkDim}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::checkDim (int {\em d}, \/  CImg$<$ T $>$ {\em img})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_aa5dd32c8cec3b27aee106846b3fc67c9}
+
+
+check if NetCDF {\ttfamily variable} and {\ttfamily CImg} dims are the same check if NetCDF {\ttfamily variable} and {\ttfamily CImg} dims are the same
+
+\begin{DoxyItemize}
+\item img: {\ttfamily CImg} image dimensions to check\end{DoxyItemize}
+
+\begin{DoxyCode}
+   CImg<int> img(1,2,3,4);CImgNetCDF<int> fp("data.nc");
+   if( fp.checkDimx(img) || fp.checkDimy(img) || fp.checkDimz(img) || fp.checkDim
+      v(img) ) exit(1);
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+DIM LOAD\_\-DIM 
+\end{DoxySeeAlso}
+
+
+Definition at line 627 of file CImg\_\-NetCDF.h.\hypertarget{classCImgNetCDF_a658c9f9281a4a20cab568cf522ed197c}{
+\index{CImgNetCDF@{CImgNetCDF}!getNetCDFFile@{getNetCDFFile}}
+\index{getNetCDFFile@{getNetCDFFile}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{getNetCDFFile}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ NcFile$\ast$ {\bf CImgNetCDF}$<$ T $>$::getNetCDFFile ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_a658c9f9281a4a20cab568cf522ed197c}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em :}]\end{DoxyParams}
+
+\begin{DoxyCode}
+\end{DoxyCode}
+ 
+
+Definition at line 309 of file CImg\_\-NetCDF.h.
+
+References CImgNetCDF$<$ T $>$::pNCFile.\hypertarget{classCImgNetCDF_a2ad26dcd306b26255c307e4f6d881240}{
+\index{CImgNetCDF@{CImgNetCDF}!loadDimTime@{loadDimTime}}
+\index{loadDimTime@{loadDimTime}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{loadDimTime}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::loadDimTime (void)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_a2ad26dcd306b26255c307e4f6d881240}
+
+
+function read unlimited dimension from NetCDF file the unlimited time dimension may be a loaded one by one
+
+
+\begin{DoxyCode}
+   dataFile.loadDimTime()
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+loadDimx,y,z,v from LOAD\_\-DIM 
+\end{DoxySeeAlso}
+
+
+Definition at line 173 of file CImg\_\-NetCDF.h.
+
+References CImgNetCDF$<$ T $>$::pNCDimt.\hypertarget{classCImgNetCDF_aa96033c01ced12a4fbe89ab8c7a3dade}{
+\index{CImgNetCDF@{CImgNetCDF}!loadNetCDFData@{loadNetCDFData}}
+\index{loadNetCDFData@{loadNetCDFData}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{loadNetCDFData}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::loadNetCDFData (CImg$<$ T $>$ \& {\em img}, \/  int {\em time} = {\ttfamily 0})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_aa96033c01ced12a4fbe89ab8c7a3dade}
+
+
+load variable data from NetCDF file load from NetCDF file variable data at a time
+
+\begin{DoxyItemize}
+\item img: load data values in this {\ttfamily CImg} \item time: get data at time {\ttfamily time} (must be in the range 0 to $<$ {\ttfamily \hyperlink{classCImgNetCDF_a2ad26dcd306b26255c307e4f6d881240}{loadDimTime()}})\end{DoxyItemize}
+
+\begin{DoxyCode}
+\end{DoxyCode}
+ 
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000001}{Todo}]vector dim, so set\_\-cur will work \end{Desc}
+
+
+get component data 
+
+Definition at line 680 of file CImg\_\-NetCDF.h.\hypertarget{classCImgNetCDF_a9e50ee49eb23896c5aa7de39e790464a}{
+\index{CImgNetCDF@{CImgNetCDF}!loadNetCDFData2D@{loadNetCDFData2D}}
+\index{loadNetCDFData2D@{loadNetCDFData2D}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{loadNetCDFData2D}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::loadNetCDFData2D (CImg$<$ T $>$ \& {\em img}, \/  int {\em time} = {\ttfamily 0})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_a9e50ee49eb23896c5aa7de39e790464a}
+
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000003}{Todo}]vector dim, so set\_\-cur will work \end{Desc}
+
+
+get component data 
+
+Definition at line 729 of file CImg\_\-NetCDF.h.\hypertarget{classCImgNetCDF_aa573424ddff780eeaa637ff276593ac2}{
+\index{CImgNetCDF@{CImgNetCDF}!loadNetCDFData3D@{loadNetCDFData3D}}
+\index{loadNetCDFData3D@{loadNetCDFData3D}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{loadNetCDFData3D}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::loadNetCDFData3D (CImg$<$ T $>$ \& {\em img}, \/  int {\em time} = {\ttfamily 0})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_aa573424ddff780eeaa637ff276593ac2}
+
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000002}{Todo}]vector dim, so set\_\-cur will work \end{Desc}
+
+
+get component data 
+
+Definition at line 698 of file CImg\_\-NetCDF.h.\hypertarget{classCImgNetCDF_a350b9626b09d65e530c08ae5dea60484}{
+\index{CImgNetCDF@{CImgNetCDF}!loadNetCDFDimNames@{loadNetCDFDimNames}}
+\index{loadNetCDFDimNames@{loadNetCDFDimNames}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{loadNetCDFDimNames}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::loadNetCDFDimNames (std::string \& {\em var\_\-name}, \/  std::vector$<$ std::string $>$ \& {\em dim\_\-names}, \/  std::string $\ast$ {\em pTime\_\-name} = {\ttfamily NULL})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_a350b9626b09d65e530c08ae5dea60484}
+
+
+load dimension names of a variable from NetCDF file load variable names of a named variable from NetCDF file
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em var\_\-name,:}]name of the variable \item[\mbox{$\rightarrow$} {\em dim\_\-names,:}]names of variable dimensions (i.e. fixed dimensions) \item[\mbox{$\rightarrow$} {\em pTime\_\-name,:}]name of variable unlimited dimension (i.e. append dimension)\end{DoxyParams}
+
+\begin{DoxyCode}
+\end{DoxyCode}
+ 
+
+get variable 
+
+Definition at line 578 of file CImg\_\-NetCDF.h.\hypertarget{classCImgNetCDF_afa914e4be782646fd737dd878a1806ca}{
+\index{CImgNetCDF@{CImgNetCDF}!loadNetCDFDimNamesNoUnlimited@{loadNetCDFDimNamesNoUnlimited}}
+\index{loadNetCDFDimNamesNoUnlimited@{loadNetCDFDimNamesNoUnlimited}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{loadNetCDFDimNamesNoUnlimited}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::loadNetCDFDimNamesNoUnlimited (std::string \& {\em var\_\-name}, \/  std::vector$<$ std::string $>$ \& {\em dim\_\-names})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_afa914e4be782646fd737dd878a1806ca}
+
+
+same as previously but without time 
+
+get variable 
+
+Definition at line 761 of file CImg\_\-NetCDF.h.\hypertarget{classCImgNetCDF_a2cbfbccd1c9c37d7cbdafe9714c3cde8}{
+\index{CImgNetCDF@{CImgNetCDF}!loadNetCDFDims@{loadNetCDFDims}}
+\index{loadNetCDFDims@{loadNetCDFDims}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{loadNetCDFDims}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::loadNetCDFDims (std::vector$<$ std::string $>$ {\em dim\_\-names}, \/  std::string $\ast$ {\em pTime\_\-name} = {\ttfamily NULL})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_a2cbfbccd1c9c37d7cbdafe9714c3cde8}
+
+
+load dimensions from NetCDF file load variable dimensions from NetCDF file
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em :}]\end{DoxyParams}
+
+\begin{DoxyCode}
+\end{DoxyCode}
+ 
+
+Definition at line 542 of file CImg\_\-NetCDF.h.\hypertarget{classCImgNetCDF_ae7d505dcbd88ede3b6a1c771ce8a6be7}{
+\index{CImgNetCDF@{CImgNetCDF}!loadNetCDFFile@{loadNetCDFFile}}
+\index{loadNetCDFFile@{loadNetCDFFile}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{loadNetCDFFile}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::loadNetCDFFile (char $\ast$ {\em fileName})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_ae7d505dcbd88ede3b6a1c771ce8a6be7}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em :}]\end{DoxyParams}
+
+\begin{DoxyCode}
+\end{DoxyCode}
+ 
+
+Definition at line 229 of file CImg\_\-NetCDF.h.
+
+References CImgNetCDF$<$ T $>$::pNCFile.\hypertarget{classCImgNetCDF_a72dbe97219bf43d21637dc01dcc972f6}{
+\index{CImgNetCDF@{CImgNetCDF}!loadNetCDFVar@{loadNetCDFVar}}
+\index{loadNetCDFVar@{loadNetCDFVar}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{loadNetCDFVar}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::loadNetCDFVar (CImg$<$ T $>$ \& {\em img}, \/  std::string \& {\em var\_\-name}, \/  std::string \& {\em pUnit\_\-name} = {\ttfamily NULL})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_a72dbe97219bf43d21637dc01dcc972f6}
+
+
+load variable dimension from NetCDF file load from NetCDF file a certain number of variables from names, that will set the variable dimension
+
+
+\begin{DoxyCode}
+\end{DoxyCode}
+ 
+
+get variable
+
+set CImg dimensions if needed 
+
+Definition at line 511 of file CImg\_\-NetCDF.h.
+
+References CImgNetCDF$<$ T $>$::vpNCDim.\hypertarget{classCImgNetCDF_a94e05ac95caf702c89b9d9344836d425}{
+\index{CImgNetCDF@{CImgNetCDF}!saveNetCDFFile@{saveNetCDFFile}}
+\index{saveNetCDFFile@{saveNetCDFFile}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{saveNetCDFFile}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::saveNetCDFFile (char $\ast$ {\em fileName}, \/  std::vector$<$ std::string $>$ $\ast$ {\em pDim\_\-names} = {\ttfamily NULL}, \/  std::string $\ast$ {\em pTime\_\-name} = {\ttfamily NULL})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_a94e05ac95caf702c89b9d9344836d425}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em :}]\end{DoxyParams}
+
+\begin{DoxyCode}
+\end{DoxyCode}
+ 
+
+Definition at line 253 of file CImg\_\-NetCDF.h.
+
+References CImgNetCDF$<$ T $>$::pNCFile.\hypertarget{classCImgNetCDF_a4d60272a959fcdae94b83f46cf5a2864}{
+\index{CImgNetCDF@{CImgNetCDF}!setNetCDFDims@{setNetCDFDims}}
+\index{setNetCDFDims@{setNetCDFDims}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{setNetCDFDims}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::setNetCDFDims (std::vector$<$ NcDim $\ast$ $>$ {\em VDim}, \/  NcDim $\ast$ {\em pNetCDFDimt} = {\ttfamily NULL})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_a4d60272a959fcdae94b83f46cf5a2864}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em :}]\end{DoxyParams}
+
+\begin{DoxyCode}
+\end{DoxyCode}
+ 
+
+Definition at line 935 of file CImg\_\-NetCDF.h.\hypertarget{classCImgNetCDF_a8b20f921fe15b013c7b16a21d244bad7}{
+\index{CImgNetCDF@{CImgNetCDF}!setNetCDFFile@{setNetCDFFile}}
+\index{setNetCDFFile@{setNetCDFFile}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{setNetCDFFile}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf CImgNetCDF}$<$ T $>$::setNetCDFFile (NcFile $\ast$ {\em pNetCDFFile})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classCImgNetCDF_a8b20f921fe15b013c7b16a21d244bad7}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em :}]\end{DoxyParams}
+
+\begin{DoxyCode}
+\end{DoxyCode}
+ 
+
+Definition at line 288 of file CImg\_\-NetCDF.h.
+
+References CImgNetCDF$<$ T $>$::pNCFile.
+
+\subsection{Member Data Documentation}
+\hypertarget{classCImgNetCDF_a741b1e75f0973b1057f9e6d0df938bea}{
+\index{CImgNetCDF@{CImgNetCDF}!pNCDimt@{pNCDimt}}
+\index{pNCDimt@{pNCDimt}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{pNCDimt}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ NcDim$\ast$ {\bf CImgNetCDF}$<$ T $>$::{\bf pNCDimt}}}
+\label{classCImgNetCDF_a741b1e75f0973b1057f9e6d0df938bea}
+
+\begin{DoxyCode}
+   if (!(pDimt=dataFile.get_dim("time"))) return NC_ERROR;//Read
+   if (!(pDimt=dataFile.add_dim("time"))) return NC_ERROR;//Write: add an unlimit
+      ed dimension
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+if {\ttfamily pNCDimt==NULL} , the class should behave as there is no unlimited direction.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classCImgNetCDF_a2ad26dcd306b26255c307e4f6d881240}{loadDimTime} 
+\end{DoxySeeAlso}
+
+
+Definition at line 151 of file CImg\_\-NetCDF.h.\hypertarget{classCImgNetCDF_ab7b0ae4b12b395794e3b0d02225130fd}{
+\index{CImgNetCDF@{CImgNetCDF}!pNCError@{pNCError}}
+\index{pNCError@{pNCError}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{pNCError}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ NcError$\ast$ {\bf CImgNetCDF}$<$ T $>$::{\bf pNCError}}}
+\label{classCImgNetCDF_ab7b0ae4b12b395794e3b0d02225130fd}
+
+
+pointer to NetCDF error handling 
+\begin{DoxyCode}
+   NcError err(NcError::verbose_nonfatal);
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+
+\end{DoxySeeAlso}
+
+
+Definition at line 55 of file CImg\_\-NetCDF.h.\hypertarget{classCImgNetCDF_afc1258a75770925f6646a4291257e8f7}{
+\index{CImgNetCDF@{CImgNetCDF}!pNCFile@{pNCFile}}
+\index{pNCFile@{pNCFile}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{pNCFile}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ NcFile$\ast$ {\bf CImgNetCDF}$<$ T $>$::{\bf pNCFile}}}
+\label{classCImgNetCDF_afc1258a75770925f6646a4291257e8f7}
+
+
+pointer to NetCDF file 
+\begin{DoxyCode}
+   string f="2D3C.nc";
+   NcFile dataFile(f.c_str(),NcFile::ReadOnly);//Read
+   NcFile dataFile(f.c_str(),NcFile::Replace);//Write
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+
+\end{DoxySeeAlso}
+
+
+Definition at line 69 of file CImg\_\-NetCDF.h.\hypertarget{classCImgNetCDF_a2075c35a87dadc9868f8a2a8b46ca833}{
+\index{CImgNetCDF@{CImgNetCDF}!pNCvar@{pNCvar}}
+\index{pNCvar@{pNCvar}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{pNCvar}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ NcVar$\ast$ {\bf CImgNetCDF}$<$ T $>$::{\bf pNCvar}}}
+\label{classCImgNetCDF_a2075c35a87dadc9868f8a2a8b46ca833}
+
+
+pointers to NetCDF data access to NetCDF data
+
+
+\begin{DoxyCode}
+\end{DoxyCode}
+ 
+
+Definition at line 161 of file CImg\_\-NetCDF.h.\hypertarget{classCImgNetCDF_acfe94f6cb56b1d1b8eea947473b4ce8c}{
+\index{CImgNetCDF@{CImgNetCDF}!vpNCDim@{vpNCDim}}
+\index{vpNCDim@{vpNCDim}!CImgNetCDF@{CImgNetCDF}}
+\subsubsection[{vpNCDim}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ std::vector$<$NcDim$\ast$$>$ {\bf CImgNetCDF}$<$ T $>$::{\bf vpNCDim}}}
+\label{classCImgNetCDF_acfe94f6cb56b1d1b8eea947473b4ce8c}
+
+
+pointers to NetCDF dimensions 
+\begin{DoxyCode}
+   if (!(pDimi=dataFile.get_dim("dim_x"))) return NC_ERROR;//Read
+   if (!(pDimi=dataFile.add_dim("dim_x",dimi))) return NC_ERROR;//Write
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+loadDimx,y,z,v LOAD\_\-DIM 
+\end{DoxySeeAlso}
+
+
+Definition at line 82 of file CImg\_\-NetCDF.h.
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+CImg\_\-NetCDF.h\end{DoxyCompactItemize}

@@ -1,0 +1,4 @@
+
+#DEMIPERIOD en nanosec
+g++ simple_RTloop.c -lcomedi -DDEMIPERIOD=50000 -DREAD -DWRITE -lrt -o simple_RTloop && ./simple_RTloop 
+
